@@ -122,6 +122,4 @@ function copyColorCodeToClipboard() {
 
       });
 }
-
-// Ajoutez cet écouteur d'événements pour le clic
 document.documentElement.addEventListener("click", copyColorCodeToClipboard);

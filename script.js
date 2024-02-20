@@ -2,20 +2,14 @@ const $context = document.querySelector('.js-picker');
 const $title = document.querySelector('.js-picker__colorValue');
 const $subtitle = document.querySelector('.js-picker__colorName');
 const $cursor = document.querySelector('.js-cursor');
-// global X/Y cursor position
+
+
 let x = 0;let y = 0;
 let cursor = { x: 0, y: 0, z: 0 };
-
-// mouseCoordinates <-> color system mapping
 let axis = { x: 'h', y: 'l', z: 's' };
-
-// global RAF ticking status
 let ticking = false;
-
-// initial color
 let color = chroma($title.innerHTML);
 
-// color system information
 let hsl = {
   h: color.get('hsl.h'),
   s: color.get('hsl.s'),
@@ -84,10 +78,7 @@ if (!('ontouchstart' in document.documentElement)) {
   xyTouch.on("panleft panright panup pandown", ev => {
     hsl[axis.x] = x = ev.pointers[0].pageX / $context.clientWidth;
     hsl[axis.y] = y = ev.pointers[0].pageY / $context.clientHeight;
-    /*
-    let deltaY = ev.deltaY > 0 ? 0.00001 : -0.00001;
-    let deltaX = ev.deltaX > 0 ? 0.01 : -0.01;
-    */
+
     requestTick();
   });
   let zTouch = new Hammer($context);

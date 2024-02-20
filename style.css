@@ -7,7 +7,7 @@ body, .picker {
   font-family: "Roboto", sans-serif;
   min-height: 100vh;
   cursor: none;
-  background: hotpink;
+  background: #ff66b6;
 }
 
 .picker {
@@ -24,7 +24,6 @@ body, .picker {
   width: 2rem;
   height: 2rem;
   top: 110vh;
-  pointer-events: none;
 }
 .cursor g {
   fill: currentColor;

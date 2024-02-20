@@ -2,7 +2,6 @@ const $context = document.querySelector('.js-picker');
 const $title = document.querySelector('.js-picker__colorValue');
 const $subtitle = document.querySelector('.js-picker__colorName');
 const $cursor = document.querySelector('.js-cursor');
-
 // global X/Y cursor position
 let x = 0;let y = 0;
 let cursor = { x: 0, y: 0, z: 0 };
@@ -111,6 +110,7 @@ function copyColorCodeToClipboard() {
         notification.textContent = 'Code couleur copié dans le presse-papiers !';
         notification.classList.add('notification');
         notification.style.backgroundColor = rgbColor;
+        notification.style.color = color.luminance() < .4 ? '#fff' : '#000';
 
         document.body.appendChild(notification);
         setTimeout(() => {
